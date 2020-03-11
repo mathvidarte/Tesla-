@@ -1,3 +1,5 @@
+import controlP5.ControlP5;
+import controlP5.Textfield;
 import processing.core.PApplet;
 import processing.core.PImage;
 
@@ -49,6 +51,13 @@ public class Main extends PApplet {
 	int color;
 	int next;
 	int modal;
+	
+	//USUARIO
+	RegisterUser user;
+	ControlP5 control;
+	
+	Textfield name, email, password, confirmPassword;
+	
 	
 	
 
@@ -113,6 +122,33 @@ public class Main extends PApplet {
 		modal = 0;
 		
 		
+		user = new RegisterUser (this);
+		
+		control = new ControlP5(this);
+		
+		name = control.addTextfield("name")
+				.setPosition(82, 397)
+				.setSize (220, 20)
+				.setColor (color(0));
+		
+		email = control.addTextfield("email")
+				.setPosition(82, 444)
+				.setSize (220, 20)
+				.setColor (color(0));
+		
+		password = control.addTextfield("password")
+				.setPosition(82, 491)
+				.setSize (220, 20)
+				.setColor (color(0));
+		
+		confirmPassword = control.addTextfield("confirmPassword")
+				.setPosition(82, 538)
+				.setSize (220, 20)
+				.setColor (color(0));
+		
+		
+		
+		
 
 		
 		
@@ -129,6 +165,10 @@ background (225);
 			}
 			break ;
 		case 1:
+			name.hide();
+			email.hide();
+			password.hide();
+			confirmPassword.hide();
 			switch (home) {
 			case 0:
 				image(model3, 0, 0);
@@ -145,6 +185,10 @@ background (225);
 			}
 			break;
 		case 2:
+			name.hide();
+			email.hide();
+			password.hide();
+			confirmPassword.hide();
 			switch (menu) {
 			case 0: 
 				image(menu1, 0, 0);
@@ -161,6 +205,10 @@ background (225);
 			}
 			break;
 		case 3: 
+			name.hide();
+			email.hide();
+			password.hide();
+			confirmPassword.hide();
 			switch (drop) {
 			case 0:
 				image (dropDownMenu1, 0, 0);
@@ -189,17 +237,37 @@ background (225);
 			}
 			break;
 		case 4:
+			name.hide();
+			email.hide();
+			password.hide();
+			confirmPassword.hide();
 			image (history, 0, 0);
 			break;
 		case 5:
+			name.hide();
+			email.hide();
+			password.hide();
+			confirmPassword.hide();
 			image (carroBlanco, 0, 0);
 			break;
 		case 6:
+			name.hide();
+			email.hide();
+			password.hide();
+			confirmPassword.hide();
 			image (payment, 0, 0);
 			break;
 		case 7:
+			name.hide();
+			email.hide();
+			password.hide();
+			confirmPassword.hide();
 			image (details, 0, 0);
 		case 8:
+			name.hide();
+			email.hide();
+			password.hide();
+			confirmPassword.hide();
 			switch (next) {
 			case 0:
 				image (compare1, 0, 0);
@@ -216,6 +284,10 @@ background (225);
 			}
 			break;
 		case 9: 
+			name.hide();
+			email.hide();
+			password.hide();
+			confirmPassword.hide();
 			switch (modal) {
 			case 0:
 				image(storeGallery, 0, 0);
@@ -448,7 +520,9 @@ background (225);
 			break;
 		case 6:
 			if (mouseX > 109 && mouseX < 268 && mouseY > 588 && mouseX < 625) {
-				screen = 7;
+				screen = 7
+						
+						;
 			}
 			if (mouseX > 298 && mouseX < 317 && mouseY > 80 && mouseY < 100 ||
 					mouseX > 123 && mouseX < 251 && mouseY > 20 && mouseY < 39) {
