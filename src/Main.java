@@ -258,11 +258,12 @@ background (225);
 			image (payment, 0, 0);
 			break;
 		case 7:
+			image (details, 0, 0);
 			name.hide();
 			email.hide();
 			password.hide();
 			confirmPassword.hide();
-			image (details, 0, 0);
+			break;
 		case 8:
 			name.hide();
 			email.hide();
@@ -520,9 +521,7 @@ background (225);
 			break;
 		case 6:
 			if (mouseX > 109 && mouseX < 268 && mouseY > 588 && mouseX < 625) {
-				screen = 7
-						
-						;
+				screen = 7;
 			}
 			if (mouseX > 298 && mouseX < 317 && mouseY > 80 && mouseY < 100 ||
 					mouseX > 123 && mouseX < 251 && mouseY > 20 && mouseY < 39) {
@@ -530,7 +529,10 @@ background (225);
 			}
 			break;
 		case 7:
-		
+			if (mouseX > 298 && mouseX < 317 && mouseY > 80 && mouseY < 100 ||
+					mouseX > 123 && mouseX < 251 && mouseY > 20 && mouseY < 39) {
+				screen = 1;
+			}
 			break;
 		case 8:
 			switch (next) {
@@ -622,6 +624,13 @@ background (225);
 				
 			
 			}
+			
+			/*public void getInfo() {
+				name = control.(Textfield.class,"Name").getText();
+				email = cp5.get(Textfield.class,"email").getText();
+				password = cp5.get(Textfield.class,"password").getText();
+				confirmPassword = cp5.get(Textfield.class,"confirmPassword").getText();
+			}*/
 		}
 	}
 }
