@@ -38,6 +38,7 @@ public class Main extends PApplet {
 	PImage signInWithOut;
 	PImage storeGallery;
 	PImage superchargers;
+	PImage signInBlack;
 	
 	
 	//VAR PARA PANTALLAS
@@ -47,15 +48,10 @@ public class Main extends PApplet {
 	int drop;
 	int color;
 	int next;
-	
-	//BOOLEAN
-	
+	int modal;
 	
 	
-	
-	//ANIMACIONES
-	int flechas [];
-	
+
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -106,6 +102,7 @@ public class Main extends PApplet {
 		signInWithOut = loadImage("imagen/signInWithOut.jpg");
 		storeGallery = loadImage("imagen/storeGallery.jpg");
 		superchargers = loadImage("imagen/superchargers.jpg");
+		signInBlack = loadImage("imagen/signInBlack.png");
 		
 		screen = 0;
 		home = 0;
@@ -113,7 +110,7 @@ public class Main extends PApplet {
 		drop = 0;
 		color = 0;
 		next = 0;
-		
+		modal = 0;
 		
 		
 
@@ -126,8 +123,10 @@ background (225);
 		
 		switch (screen) {
 		case 0:
-			rect (0, 0, 375, 812);
-			fill (255, 0, 0);
+			image (signIn, 0, 0);
+			if (mouseX > 127 && mouseX < 251 && mouseY > 594 && mouseY < 621) {
+				image (signInBlack, 0, 0);
+			}
 			break ;
 		case 1:
 			switch (home) {
@@ -216,6 +215,19 @@ background (225);
 				break;
 			}
 			break;
+		case 9: 
+			switch (modal) {
+			case 0:
+				image(storeGallery, 0, 0);
+				break;
+			case 1:
+				image (superchargers, 0, 0);
+				break;
+			case 2:
+				image (service,0, 0);
+				break;
+			}
+			break;
 			
 			
 		
@@ -232,7 +244,10 @@ background (225);
 	public void mousePressed () {
 		switch (screen) {
 		case 0:
-			screen = 1;
+			if (mouseX > 127 && mouseX < 251 && mouseY > 594 && mouseY < 621) {
+				screen = 9;
+				modal = 0;
+			}
 			break;
 		case 1:
 			switch (home) {
@@ -489,13 +504,50 @@ background (225);
 				}
 				
 				break;
+		
 			}
+			break;
+		case 9:
+			switch (modal) {
+			case 0:
+				if (mouseX > 146 && mouseX < 236 && mouseY > 465 && mouseY < 478) {
+					screen = 9;
+					modal = 1;
+				} else if (mouseX > 164 && mouseX < 209 && mouseY > 515 && mouseY < 530) {
+					screen = 9;
+					modal = 2;
+				} else if (mouseX > 289 && mouseX < 305 && mouseY > 253 && mouseY < 272) {
+					screen = 1;
+					home = 0;
+				}
+				break;
+			case 1:
+				if (mouseX > 126 && mouseX < 248 && mouseY > 421 && mouseY < 434) {
+					screen = 9;
+					modal = 0;
+				} else if (mouseX > 164 && mouseX < 209 && mouseY > 515 && mouseY < 530) {
+					screen = 9;
+					modal = 2;
+				} else if (mouseX > 289 && mouseX < 305 && mouseY > 253 && mouseY < 272) {
+					screen = 1;
+					home = 0;
+				}
+				break;
+			case 2:
+				if (mouseX > 126 && mouseX < 248 && mouseY > 421 && mouseY < 434) {
+					screen = 9;
+					modal = 0;
+				} else if (mouseX > 146 && mouseX < 236 && mouseY > 465 && mouseY < 478) {
+					screen = 9;
+					modal = 1;
+				} else if (mouseX > 289 && mouseX < 305 && mouseY > 253 && mouseY < 272) {
+					screen = 1;
+					home = 0;
+				}
+				break;
+				
 			
-			
-			
-			
-			
-			
+			}
 		}
 	}
 }
