@@ -5,7 +5,7 @@ import processing.core.PImage;
 public class Main extends PApplet {
 
 	// CARGAR LAS IMAGENES
-	PImage allNegrita1;
+	PImage allNegrita;
 	PImage bottonSignIn;
 	PImage compare1;
 	PImage compare2;
@@ -29,7 +29,11 @@ public class Main extends PApplet {
 	PImage menu4;
 	PImage payment;
 	PImage service;
-	PImage shopp;
+	PImage carroAzul;
+	PImage carroBlanco;
+	PImage carroGris;
+	PImage carroNegro;
+	PImage carroRojo;
 	PImage signIn;
 	PImage signInWithOut;
 	PImage storeGallery;
@@ -41,9 +45,13 @@ public class Main extends PApplet {
 	int home;
 	int menu;
 	int drop;
+	int color;
+	int next;
 	
 	//BOOLEAN
-	boolean allNegrita;
+	
+	
+	
 	
 	//ANIMACIONES
 	int flechas [];
@@ -65,7 +73,7 @@ public class Main extends PApplet {
 	}
 	
 	public void setup () {
-		allNegrita1 = loadImage("imagen/allNegrita.png");
+		allNegrita = loadImage("imagen/allNegrita.png");
 		bottonSignIn = loadImage("imagen/bottonSignIn.jpg");
 		compare1 = loadImage("imagen/compare1.jpg");
 		compare2 = loadImage("imagen/compare2.jpg");
@@ -89,7 +97,11 @@ public class Main extends PApplet {
 		modelY = loadImage("imagen/modelY.jpg");
 		payment = loadImage("imagen/payment.jpg");
 		service = loadImage("imagen/service.jpg");
-		shopp = loadImage("imagen/shopp.jpg");
+		carroAzul = loadImage("imagen/carroAzul.jpg");
+		carroBlanco = loadImage("imagen/carroBlanco.jpg");
+		carroGris = loadImage("imagen/carroGris.jpg");
+		carroNegro = loadImage("imagen/carroNegro.jpg");
+		carroRojo = loadImage("imagen/carroRojo.jpg");
 		signIn = loadImage("imagen/signIn.jpg");
 		signInWithOut = loadImage("imagen/signInWithOut.jpg");
 		storeGallery = loadImage("imagen/storeGallery.jpg");
@@ -99,8 +111,11 @@ public class Main extends PApplet {
 		home = 0;
 		menu = 0;
 		drop = 0;
+		color = 0;
+		next = 0;
 		
-		allNegrita = false;
+		
+		
 
 		
 		
@@ -150,18 +165,58 @@ background (225);
 			switch (drop) {
 			case 0:
 				image (dropDownMenu1, 0, 0);
+				if (mouseX > 37 && mouseX < 192 && mouseY > 183 && mouseY < 211) {
+					image(allNegrita, 0, 0);
+				}
 				break;
 			case 1:
 				image (dropDownMenu2, 0, 0);
+				if (mouseX > 37 && mouseX < 192 && mouseY > 183 && mouseY < 211) {
+					image(allNegrita, 0, 0);
+				}
 				break;
 			case 2:
 				image (dropDownMenu3, 0, 0);
+				if (mouseX > 37 && mouseX < 192 && mouseY > 183 && mouseY < 211) {
+					image(allNegrita, 0, 0);
+				}
 				break;
 			case 3:
 				image (dropDownMenu4, 0, 0);
+				if (mouseX > 37 && mouseX < 192 && mouseY > 183 && mouseY < 211) {
+					image(allNegrita, 0, 0);
+				}
 				break;
 			}
 			break;
+		case 4:
+			image (history, 0, 0);
+			break;
+		case 5:
+			image (carroBlanco, 0, 0);
+			break;
+		case 6:
+			image (payment, 0, 0);
+			break;
+		case 7:
+			image (details, 0, 0);
+		case 8:
+			switch (next) {
+			case 0:
+				image (compare1, 0, 0);
+				break;
+			case 1: 
+				image (compare2, 0, 0);
+				break;
+			case 2:
+				image (compare3, 0, 0);
+				break;
+			case 3:
+				image (compare4, 0, 0);
+				break;
+			}
+			break;
+			
 			
 		
 			}
@@ -188,10 +243,22 @@ background (225);
 		        //FLECHA IZQUIERDA
 				} else if (mouseX > 37 && mouseX < 53 && mouseY > 402 && mouseY < 441) {
 					home = 3;
+				//CLICK MENU	
 				} else if (mouseX > 37 && mouseX < 68 && mouseY > 19 && mouseY < 40) {
 					screen = 2;
 					menu = 0;
 				}
+				//CLICK ORDER NOW 
+				if (mouseX > 133 && mouseX < 226 && mouseY > 115 && mouseY < 135) {
+					screen = 5;
+				}
+				//CLICK COMPARE
+				if (mouseX > 133 && mouseX < 226 && mouseY > 153 && mouseY < 175) {
+					screen = 8;
+					next = 0;
+				}
+				
+				
 				break;
 			case 1:
 				//FLECHA DERECHA
@@ -200,9 +267,15 @@ background (225);
 				//FLECHA IZQUIERDA
 				} else if (mouseX > 37 && mouseX < 53 && mouseY > 402 && mouseY < 441) {
 					home = 0;
+				//CLICK MENU	
 				} else if (mouseX > 37 && mouseX < 68 && mouseY > 19 && mouseY < 40) {
 					screen = 2;
 					menu = 1;
+				}
+				//CLICK ORDER NOW 
+				if (mouseX > 133 && mouseX < 226 && mouseY > 115 && mouseY < 135) {
+					screen = 5;
+					color = 0;
 				}
 				break;
 			case 2:
@@ -212,9 +285,15 @@ background (225);
 				//FLECHA IZQUIERDA
 				} else if (mouseX > 37 && mouseX < 53 && mouseY > 402 && mouseY < 441) {
 					home = 1;
+				//CLICK MENU	
 				} else if (mouseX > 37 && mouseX < 68 && mouseY > 19 && mouseY < 40) {
 					screen = 2;
 					menu = 2;
+				}
+				//CLICK ORDER NOW 
+				if (mouseX > 133 && mouseX < 226 && mouseY > 115 && mouseY < 135) {
+					screen = 5;
+					color = 0;
 				}
 				break;
 			case 3:
@@ -224,9 +303,15 @@ background (225);
 				//FLECHA IZQUIERDA
 				} else if (mouseX > 37 && mouseX < 53 && mouseY > 402 && mouseY < 441) {
 					home = 2;
+				//CLICK MENU	
 				} else if (mouseX > 37 && mouseX < 68 && mouseY > 19 && mouseY < 40) {
 					screen = 2;
 					menu = 3;
+				}
+				//CLICK ORDER NOW 
+				if (mouseX > 133 && mouseX < 226 && mouseY > 115 && mouseY < 135) {
+					screen = 5;
+					color = 0;
 				}
 				break;
 			}
@@ -289,12 +374,19 @@ background (225);
 					screen = 1;
 					home = 0;
 				}
+				
+				if (mouseX > 37 && mouseX < 192 && mouseY > 183 && mouseY < 211) {
+					screen = 4;
+				}
 				break;
 			case 1:
 				if (mouseX > 37 && mouseX < 68 && mouseY > 19 && mouseY < 40 ||
 						mouseX > 245 && mouseX < 375 && mouseY > 0 && mouseY < 812)  {
 					screen = 1;
 					home = 1;
+				}
+				if (mouseX > 37 && mouseX < 192 && mouseY > 183 && mouseY < 211) {
+					screen = 4;
 				}
 				break;
 			case 2:
@@ -303,6 +395,9 @@ background (225);
 					screen = 1;
 					home = 2;
 				}
+				if (mouseX > 37 && mouseX < 192 && mouseY > 183 && mouseY < 211) {
+					screen = 4;
+				}
 				break;
 			case 3:
 				if (mouseX > 37 && mouseX < 68 && mouseY > 19 && mouseY < 40 ||
@@ -310,10 +405,95 @@ background (225);
 					screen = 1;
 					home = 3;
 				}
+				if (mouseX > 37 && mouseX < 192 && mouseY > 183 && mouseY < 211) {
+					screen = 4;
+				}
 				break;
 				
 			}
 			break;
+		case 4:
+			if (mouseX > 298 && mouseX < 317 && mouseY > 80 && mouseY < 100 ||
+					mouseX > 123 && mouseX < 251 && mouseY > 20 && mouseY < 39) {
+				screen = 1;
+			}
+			if (mouseX > 298 && mouseX < 317 && mouseY > 80 && mouseY < 100 ||
+					mouseX > 123 && mouseX < 251 && mouseY > 20 && mouseY < 39) {
+				screen = 1;
+			}
+			break;
+		case 5:
+			if (mouseX > 109 && mouseX < 268 && mouseY > 588 && mouseX < 625) {
+				screen = 6;
+			}
+			if (mouseX > 298 && mouseX < 317 && mouseY > 80 && mouseY < 100 ||
+					mouseX > 123 && mouseX < 251 && mouseY > 20 && mouseY < 39) {
+				screen = 1;
+			}
+			break;
+		case 6:
+			if (mouseX > 109 && mouseX < 268 && mouseY > 588 && mouseX < 625) {
+				screen = 7;
+			}
+			if (mouseX > 298 && mouseX < 317 && mouseY > 80 && mouseY < 100 ||
+					mouseX > 123 && mouseX < 251 && mouseY > 20 && mouseY < 39) {
+				screen = 1;
+			}
+			break;
+		case 7:
+		
+			break;
+		case 8:
+			switch (next) {
+			case 0:
+				if (mouseX > 323 && mouseX < 339 && mouseY > 405 && mouseX < 435) {
+					//screen = 7;
+					next = 1;
+				}
+				if (mouseX > 298 && mouseX < 317 && mouseY > 80 && mouseY < 100 ||
+						mouseX > 123 && mouseX < 251 && mouseY > 20 && mouseY < 39) {
+					screen = 1;
+				}
+				break;
+			case 1:
+				if (mouseX > 323 && mouseX < 339 && mouseY > 405 && mouseX < 435) {
+					//screen = 7;
+					next = 2;
+				} else if (mouseX > 37 && mouseX < 58 && mouseY > 405 && mouseX < 435) {
+					next = 0;
+				}
+				if (mouseX > 298 && mouseX < 317 && mouseY > 80 && mouseY < 100 ||
+						mouseX > 123 && mouseX < 251 && mouseY > 20 && mouseY < 39) {
+					screen = 1;
+				}
+				break;
+			case 2:
+				if (mouseX > 323 && mouseX < 339 && mouseY > 405 && mouseX < 435) {
+					//screen = 7;
+					next = 3;
+				} else if (mouseX > 37 && mouseX < 58 && mouseY > 405 && mouseX < 435) {
+					next = 1;
+				}
+				if (mouseX > 298 && mouseX < 317 && mouseY > 80 && mouseY < 100 ||
+						mouseX > 123 && mouseX < 251 && mouseY > 20 && mouseY < 39) {
+					screen = 1;
+				}
+				break;
+			case 3:
+				if (mouseX > 37 && mouseX < 58 && mouseY > 405 && mouseX < 435) {
+					next = 2;
+				}
+				if (mouseX > 298 && mouseX < 317 && mouseY > 80 && mouseY < 100 ||
+						mouseX > 123 && mouseX < 251 && mouseY > 20 && mouseY < 39) {
+					screen = 1;
+				}
+				
+				break;
+			}
+			
+			
+			
+			
 			
 			
 		}
